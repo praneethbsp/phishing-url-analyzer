@@ -33,6 +33,7 @@ Phishing attacks frequently bypass signature-based filters by altering domain st
 ---
 
 ## 🛠️ Project Structure
+
 ```text
 phishing-url-analyzer/
 ├── data/
@@ -44,14 +45,20 @@ phishing-url-analyzer/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
-⚙️ Quickstart & Local Setup
-1. Clone the repository
-Bash
+---
+
+## ⚙️ Quickstart & Local Setup
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/praneethbsp/phishing-url-analyzer.git
 cd phishing-url-analyzer
-2. Set up virtual environment
-Bash
+```
+
+### 2. Set up virtual environment
+```bash
 python -m venv .venv
 
 # On Windows:
@@ -59,26 +66,36 @@ python -m venv .venv
 
 # On macOS/Linux:
 source .venv/bin/activate
-3. Install dependencies
-Bash
+```
+
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
-4. Start the inference API
-Bash
+```
+
+### 4. Start the inference API
+```bash
 uvicorn app:app --reload --port 8000
-🔌 API Usage
-Interactive Docs (Swagger UI)
-Visit http://127.0.0.1:8000/docs in your browser to test endpoints interactively.
+```
 
-Predict Endpoint (POST /predict)
-Request Payload:
+---
 
-JSON
+## 🔌 API Usage
+
+### Interactive Docs (Swagger UI)
+Visit `[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)` in your browser to test endpoints interactively.
+
+### Predict Endpoint (`POST /predict`)
+
+**Request Payload:**
+```json
 {
   "url": "http://192.168.1.1/secure-update/login.php"
 }
-Response Payload:
+```
 
-JSON
+**Response Payload:**
+```json
 {
   "url": "http://192.168.1.1/secure-update/login.php",
   "is_safe": false,
@@ -86,9 +103,11 @@ JSON
   "phishing_confidence_pct": 100.0,
   "safe_confidence_pct": 0.0
 }
-💻 Tech Stack
-Language: Python 3.10+
+```
 
-Data Processing & ML: Pandas, NumPy, Scikit-Learn, Joblib
+---
 
-Backend Serving: FastAPI, Pydantic, Uvicorn
+## 💻 Tech Stack
+* **Language:** Python 3.10+
+* **Data Processing & ML:** Pandas, NumPy, Scikit-Learn, Joblib
+* **Backend Serving:** FastAPI, Pydantic, Uvicorn
